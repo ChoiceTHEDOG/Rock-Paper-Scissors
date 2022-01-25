@@ -11,32 +11,78 @@
 
 <script> 
 
-function randomNumberGenerator(min, max) { 
-  return Math.floor(Math.random() * (max - min + 1) + min)  // Ni idea que hace
+function randomNumberGenerator(min, max) {               // Ni idea de como lo hace pero genera un valor aleatorio entre 1-9
+  return Math.floor(Math.random() * (max - min + 1) + min)  
 }
-
 let randomNum = randomNumberGenerator(1, 9)              // Establecemos el rango de entre 1-9
 
 console.log(randomNum)
 
-function computerPlay(valorDeMierda) {         // Tiene que elegir aleatoriamente entre Piedrea, Papel o Tijeras
-    switch(valorDeMierda) {                    // Como hacemos para que elija random? 
+function computerPlay(placeHolder = true) {         // Tiene que elegir aleatoriamente entre Piedrea, Papel o Tijeras
+    switch(placeHolder) {                    // Como hacemos para que elija random? 
     case randomNum <= 3 :
-        console.log("Rock");
+        console.log("Rock");                         // (1-2-3- es Piedra)
         break;
     case randomNum <= 6:
-        console.log("Paper");                 // Genramos un numero entre 1 y 9 y usando estas reglas asignamos (1-2-3- es Piedra) (4-5-6 es Papel) (7-8-9 es Tijera)
+        console.log("Paper");                        //(4-5-6 es Papel) 
         break;
     case randomNum <= 9 :
-        console.log("Scissors");
+        console.log("Scissors");                     //(7-8-9 es Tijera)
         break;
-    default:
-        console.log("Something has failed");
+    // default:
+    //     console.log("Something has failed");
 }
 }        
-computerPlay(true)
 
-          
+
+function playRound(playerSelection, computerSelection) {   // Como compramos los str y decidimos quien gana?
+    switch(true) {
+        
+        // Draw Cases 
+        
+        case playerSelection.toUpperCase() == "rock" && computerSelection.toUpperCase() == "rock" :
+            return "Both selectet Rock, it's a draw.";
+            break;
+        case playerSelection.toUpperCase() == "paper" && computerSelection.toUpperCase() == "paper" :
+            return "Both selectet Paper, it's a draw.";
+            break;
+        case playerSelection.toUpperCase() == "scissors" && computerSelection.toUpperCase() == "scissors" :
+            return "Both selectet Scissors, it's a draw.";
+            break;
+        
+        // Player Win Cases
+
+        case playerSelection.toUpperCase() == "rock" && computerSelection.toUpperCase() == "scissors" :
+            return "It's a Win!!! Your Rock wins over the computer Scissors.";
+            break;
+        case playerSelection.toUpperCase() == "paper" && computerSelection.toUpperCase() == "rock" :
+            return "It's a Win!!! Your Paper wins over the computer rock.";
+            break;
+        case playerSelection.toUpperCase() == "scissors" && computerSelection.toUpperCase() == "paper" :
+            return "It's a Win!!! Your scissors wins over the computer paper.";
+            break;
+
+        // Computer Win Cases  
+         
+        case playerSelection.toUpperCase() == "rock" && computerSelection.toUpperCase() == "paper" :
+            return "It's a lost round :( Your Rock looses over the computer Paper.";
+            break;
+        case playerSelection.toUpperCase() == "paper" && computerSelection.toUpperCase() == "scissors" :
+            return "It's a lost round :( Your Paper looses over the computer Scissors.";
+            break;
+        case playerSelection.toUpperCase() == "scissors" && computerSelection.toUpperCase() == "rock" :
+            return "It's a lost round :( Your Scissors looses over the computer Rock.";
+            break;
+
+    //     // Default
+    //     default: 
+    //    console.log("Algo salio mal :((((((");
+    }
+}
+
+const playerSelection = "Paper";
+const computerSelection = computerPlay();
+console.log(playRound("Paper", computerSelection ))
 </script>
 
 </html>
