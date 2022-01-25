@@ -115,6 +115,11 @@ function game() {
         console.log(playRound(playerSelection, computerSelection));
         console.log(pointCounter(playerSelection, computerSelection));
     } while (i < 5);
+    if(playerScore > computerScore ) {
+        return "You Win!!!"
+    } else if (playerScoreScore < computerScore) {
+        return "The Computer Wins"
+    } 
 }
 
 console.log(game())
