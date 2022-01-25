@@ -21,21 +21,22 @@ console.log(randomNum)
 function computerPlay(placeHolder = true) {         // Tiene que elegir aleatoriamente entre Piedrea, Papel o Tijeras
     switch(placeHolder) {                    // Como hacemos para que elija random? 
     case randomNum <= 3 :
-        console.log("Rock");                         // (1-2-3- es Piedra)
-        break;
+        return "Rock"                         // (1-2-3- es Piedra)
+        
     case randomNum <= 6:
-        console.log("Paper");                        //(4-5-6 es Papel) 
-        break;
+        return "Paper"                        //(4-5-6 es Papel) 
+
     case randomNum <= 9 :
-        console.log("Scissors");                     //(7-8-9 es Tijera)
-        break;
-    // default:
-    //     console.log("Something has failed");
+        return "Scissors"                     //(7-8-9 es Tijera)
+        
+    default:
+        console.log("Something has failed");
 }
 }        
-
+console.log(computerPlay())
 
 function playRound(playerSelection, computerSelection) {   // Como compramos los str y decidimos quien gana?
+    
     switch(true) {
         
         // Draw Cases 
@@ -74,9 +75,9 @@ function playRound(playerSelection, computerSelection) {   // Como compramos los
             return "It's a lost round :( Your Scissors looses over the computer Rock.";
             break;
 
-    //     // Default
-    //     default: 
-    //    console.log("Algo salio mal :((((((");
+        // Default
+        default: 
+            console.log("Algo salio mal :((((((");
     }
 }
 
