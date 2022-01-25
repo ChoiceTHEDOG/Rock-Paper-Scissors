@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Rock Papers Scissors</title>
+  </head>
+
+  <body>
+</body>
+
+<script> 
+
+function computerPlay() {                    // Tiene que elegir aleatoriamente entre Piedrea Papel o Tijeras 
+
+     if (randomNum == 1 || 2 || 3) {        // Como hacemos para que elija random?  
+         console.log("Rock")                      // Genramos un numero entre 1 y 9 y usando estas reglas asignamos (1-2-3- es Piedra) (4-5-6 es Papel) (7-8-9 es Tijera) 
+    } else if(randomNum == 4 || 5 || 6) {
+         console.log("Paper")
+     } else {
+         console.log("Scissors")
+     }
+}        
+
+function randomNumberGenerator(min, max) { // min and max included 
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+const randomNum = randomNumberGenerator(1, 9)
+console.log(randomNum)
+</script>
+
+</html>
