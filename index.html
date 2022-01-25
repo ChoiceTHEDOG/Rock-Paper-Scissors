@@ -35,55 +35,40 @@ function computerPlay(placeHolder = true) {         // Tiene que elegir aleatori
 }        
 console.log(computerPlay())
 
-function playRound(playerSelection, computerSelection) {   // Como compramos los str y decidimos quien gana?
+
+
+function playRound(playerSelection, computerSelection) {
     
-    switch(true) {
-        
-        // Draw Cases 
-        
-        case playerSelection.toUpperCase() == "rock" && computerSelection.toUpperCase() == "rock" :
-            return "Both selectet Rock, it's a draw.";
-            break;
-        case playerSelection.toUpperCase() == "paper" && computerSelection.toUpperCase() == "paper" :
-            return "Both selectet Paper, it's a draw.";
-            break;
-        case playerSelection.toUpperCase() == "scissors" && computerSelection.toUpperCase() == "scissors" :
-            return "Both selectet Scissors, it's a draw.";
-            break;
-        
-        // Player Win Cases
+    if(playerSelection.toUpperCase() === computerSelection.toUpperCase()) {
+        return "Its a Draw"
 
-        case playerSelection.toUpperCase() == "rock" && computerSelection.toUpperCase() == "scissors" :
-            return "It's a Win!!! Your Rock wins over the computer Scissors.";
-            break;
-        case playerSelection.toUpperCase() == "paper" && computerSelection.toUpperCase() == "rock" :
-            return "It's a Win!!! Your Paper wins over the computer rock.";
-            break;
-        case playerSelection.toUpperCase() == "scissors" && computerSelection.toUpperCase() == "paper" :
-            return "It's a Win!!! Your scissors wins over the computer paper.";
-            break;
+    } else if (playerSelection.toUpperCase() === "Rock" && computerSelection.toUpperCase() === "Scissors") {
+        return "It's a Win!!! Your Rock wins over the computer Scissors."
 
-        // Computer Win Cases  
-         
-        case playerSelection.toUpperCase() == "rock" && computerSelection.toUpperCase() == "paper" :
-            return "It's a lost round :( Your Rock looses over the computer Paper.";
-            break;
-        case playerSelection.toUpperCase() == "paper" && computerSelection.toUpperCase() == "scissors" :
-            return "It's a lost round :( Your Paper looses over the computer Scissors.";
-            break;
-        case playerSelection.toUpperCase() == "scissors" && computerSelection.toUpperCase() == "rock" :
-            return "It's a lost round :( Your Scissors looses over the computer Rock.";
-            break;
+    } else if (playerSelection.toUpperCase() === "Rock" && computerSelection.toUpperCase() === "Paper") {
+        return "It's a lost round :( Your Rock looses over the computer Paper."
 
-        // Default
-        default: 
-            console.log("Algo salio mal :((((((");
+    }else if (playerSelection.toUpperCase() === "Paper" && computerSelection.toUpperCase() === "Rock") {
+        return "It's a Win!!! Your Paper wins over the computer rock."
+
+    }else if (playerSelection.toUpperCase() === "Paper" && computerSelection.toUpperCase() === "Scissors") {
+        return "It's a lost round :( Your Paper looses over the computer Scissors."
+
+    }else if (playerSelection.toUpperCase() === "Scissors" && computerSelection.toUpperCase() === "Rock") {
+        return "It's a lost round :( Your Scissors looses over the computer Rock."
+
+    }else if (playerSelection.toUpperCase() === "Scissors" && computerSelection.toUpperCase() === "Paper") {
+        return "It's a Win!!! Your scissors wins over the computer paper."
+ 
+    } else {
+        alert("Paso Algo")
     }
 }
 
-const playerSelection = "Paper";
+const playerSelection = "PaPer";
 const computerSelection = computerPlay();
-console.log(playRound("Paper", computerSelection ))
+console.log(playRound(playerSelection, computerSelection));
+
 </script>
 
 </html>
