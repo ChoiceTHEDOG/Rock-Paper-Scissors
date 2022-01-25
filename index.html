@@ -39,25 +39,25 @@ console.log(computerPlay())
 
 function playRound(playerSelection, computerSelection) {
     
-    if(playerSelection.toUpperCase() === computerSelection.toUpperCase()) {
+    if(playerSelection.toUpperCase() === computerSelection.toUpperCase()) {    // Chequamos si son lo mismo, en caso de que si lo damos como empate
         return "Its a Draw"
 
-    } else if (playerSelection.toUpperCase() === "Rock" && computerSelection.toUpperCase() === "Scissors") {
+    } else if (playerSelection.toUpperCase() === "ROCK" && computerSelection.toUpperCase() === "SCISSORS") {  // Win round
         return "It's a Win!!! Your Rock wins over the computer Scissors."
 
-    } else if (playerSelection.toUpperCase() === "Rock" && computerSelection.toUpperCase() === "Paper") {
+    } else if (playerSelection.toUpperCase() === "ROCK" && computerSelection.toUpperCase() === "PAPER") {    // Loost round
         return "It's a lost round :( Your Rock looses over the computer Paper."
-
-    }else if (playerSelection.toUpperCase() === "Paper" && computerSelection.toUpperCase() === "Rock") {
+ 
+    }else if (playerSelection.toUpperCase() === "PAPER" && computerSelection.toUpperCase() === "ROCK") {      // Win round
         return "It's a Win!!! Your Paper wins over the computer rock."
 
-    }else if (playerSelection.toUpperCase() === "Paper" && computerSelection.toUpperCase() === "Scissors") {
+    }else if (playerSelection.toUpperCase() === "PAPER" && computerSelection.toUpperCase() === "SCISSORS") {    // Loost round
         return "It's a lost round :( Your Paper looses over the computer Scissors."
 
-    }else if (playerSelection.toUpperCase() === "Scissors" && computerSelection.toUpperCase() === "Rock") {
+    }else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection.toUpperCase() === "ROCK") {   // Loost round
         return "It's a lost round :( Your Scissors looses over the computer Rock."
 
-    }else if (playerSelection.toUpperCase() === "Scissors" && computerSelection.toUpperCase() === "Paper") {
+    }else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection.toUpperCase() === "PAPER") {   // Win round
         return "It's a Win!!! Your scissors wins over the computer paper."
  
     } else {
