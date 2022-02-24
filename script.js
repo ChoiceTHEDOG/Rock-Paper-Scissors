@@ -23,16 +23,19 @@ container.appendChild(scissorsBtn);
 // eventos
 
 rockBtn.addEventListener('click', () => {
+   let computerSelection = computerPlay();
     let playerSelection = "Rock"
     console.log(playRound(playerSelection, computerSelection));
   });
   
   paperBtn.addEventListener("click", () => {
+    computerSelection = computerPlay();
     playerSelection = "PAPER"
     console.log(playRound(playerSelection, computerSelection));
   });
   
   scissorsBtn.addEventListener("click", () => {
+    computerSelection = computerPlay();
     playerSelection = "SCISSORS"
     console.log(playRound(playerSelection, computerSelection));
   });  
@@ -94,9 +97,3 @@ let computerScore = 0;
           alert("Paso Algo")
       }
   }
-
-
-  const computerSelection = computerPlay();
-
-  
-  // console.log(playRound(playerSelection, computerSelection));
