@@ -1,4 +1,6 @@
 
+// botones de elecion del jugador 
+
 const container = document.querySelector('#container');
 
 const rockBtn = document.createElement("button");
@@ -16,6 +18,26 @@ scissorsBtn.textContent = 'Scissors';
 container.appendChild(rockBtn);
 container.appendChild(paperBtn);
 container.appendChild(scissorsBtn);
+
+
+// eventos
+
+
+rockBtn.addEventListener('click', () => {
+  console.log("ROCK") 
+});
+
+paperBtn.addEventListener("click", () => {
+  console.log("PAPER")
+});
+
+scissorsBtn.addEventListener("click", () => {
+  console.log("SCISSORS")
+});
+
+function playerChoice() {
+
+}
 
 
 
@@ -70,4 +92,5 @@ let computerScore = 0;
           alert("Paso Algo")
       }
   }
+  
   
