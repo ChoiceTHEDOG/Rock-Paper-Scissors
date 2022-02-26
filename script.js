@@ -1,4 +1,7 @@
 
+let playerScore = 0;
+let computerScore = 0;
+
 // botones de elecion del jugador 
 
 const container = document.querySelector('#container');
@@ -25,24 +28,44 @@ container.appendChild(scissorsBtn);
 rockBtn.addEventListener('click', () => {
    let computerSelection = computerPlay();
     let playerSelection = "Rock"
-    console.log(playRound(playerSelection, computerSelection));
+    document.getElementById("results").innerHTML = playRound(playerSelection, computerSelection);
   });
   
   paperBtn.addEventListener("click", () => {
     computerSelection = computerPlay();
     playerSelection = "PAPER"
-    console.log(playRound(playerSelection, computerSelection));
+    document.getElementById("results").innerHTML = playRound(playerSelection, computerSelection);
   });
   
   scissorsBtn.addEventListener("click", () => {
     computerSelection = computerPlay();
     playerSelection = "SCISSORS"
-    console.log(playRound(playerSelection, computerSelection));
+    document.getElementById("results").innerHTML = playRound(playerSelection, computerSelection);
   });  
 
 
-function playerChoice() {
-}
+ // div de los resultados 
+
+ const winerDiv = document.createElement("div");
+ winerDiv.textContent = "The game result is:";
+
+ const tempDiv = document.createElement("div");
+ tempDiv.setAttribute("id", "results")
+
+ const resultDiv = document.createElement("div");
+  resultDiv.textContent = "The points are:";
+ 
+ const playerPoints = document.createElement("p");
+ playerPoints.textContent = "Player points:" + " " + playerScore;
+ 
+ const computerPoints = document.createElement("p");
+ computerPoints.textContent = "Computer points" + " " + computerScore;
+ 
+ container.appendChild(winerDiv);
+ container.appendChild(tempDiv);
+ container.appendChild(resultDiv);
+ resultDiv.appendChild(playerPoints);
+ resultDiv.appendChild(computerPoints);
 
 
 
@@ -53,13 +76,10 @@ const myArray = ["Rock", "Paper", "Scissors"];
 function computerPlay() {
   return myArray[~~(Math.random() * myArray.length)];
 }   
-  
-console.log(computerPlay())
     
           // Round Algorithm 
   
-let playerScore = 0;
-let computerScore = 0;
+
 
   function playRound(playerSelection, computerSelection) {
   
@@ -96,4 +116,9 @@ let computerScore = 0;
       } else {
           alert("Paso Algo")
       }
+      playerPoints.textContent = playerScore; 
+      computerPoints.textContent = computerScore;
   }
+
+resultDiv.appendChild(playerPoints);
+resultDiv.appendChild(computerPoints);
