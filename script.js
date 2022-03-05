@@ -120,5 +120,3 @@ function computerPlay() {
       alert("The Cpu Wins!!!")
     }
   } 
-
-  
