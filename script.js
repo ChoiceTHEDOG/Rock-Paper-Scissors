@@ -40,6 +40,20 @@ rockBtn.addEventListener('click', () => {
     document.getElementById("results").innerHTML = playRound(playerSelection, computerSelection);
   });  
 
+  // div de los resultados 
+
+ const winerDiv = document.createElement("div");
+ winerDiv.textContent = "The game result is:";
+
+ const tempDiv = document.createElement("div");
+ tempDiv.setAttribute("id", "results")
+
+ const resultDiv = document.createElement("div");
+  resultDiv.textContent = "The points are:";
+ 
+ container.appendChild(winerDiv);
+ container.appendChild(tempDiv);
+ container.appendChild(resultDiv);
 
 // Funcion que hace la jugada de la computadora 
 
@@ -51,12 +65,20 @@ function computerPlay() {
     
           // Round Algorithm 
   
-  let playerScore = 0;
-  
-  let computerScore = 0;
-  
+ const updateScore = (score, playerName) => {
+  document.querySelector(`.${playerName}-score .score`).textContent = score;
+};
+ let playerPoints = parseInt(0);
+ let cpuPoints = parseInt(0);
+
+ updateScore(0, 'player');
+ updateScore(0, 'cpu');
+
+
   function playRound(playerSelection, computerSelection) {
-  
+
+    if(playerPoints < 5 && cpuPoints < 5) {
+
       if(playerSelection.toUpperCase() === computerSelection.toUpperCase()) {    // Chequamos si son lo mismo, en caso de que si lo damos como empate
         
         return "Its a Draw"
@@ -90,45 +112,13 @@ function computerPlay() {
         playerPoints += 1;
         updateScore(playerPoints, 'player');
         return "It's a Win!!! Your scissors wins over the computer paper."
-   
-      } else {
-          alert("Paso Algo")
       }
-  }
-
-  function announceWinner()  {
-    if (playerPoints == 5) {
-      alert("The Player Wins!!!")
     }
-    else if(cpuPoints == 5) {
-      alert("The Computer Wins!!!");
+    if(playerPoints == 5) {
+      alert("You win!!!")
+    } else if(cpuPoints == 5) {
+      alert("The Cpu Wins!!!")
     }
-  };  
+  } 
 
-  const updateScore = (score, playerName) => {
-    document.querySelector(`.${playerName}-score .score`).textContent = score;
-  };
   
-   // div de los resultados 
-
- const winerDiv = document.createElement("div");
- winerDiv.textContent = "The game result is:";
-
- const tempDiv = document.createElement("div");
- tempDiv.setAttribute("id", "results")
-
- const resultDiv = document.createElement("div");
-  resultDiv.textContent = "The points are:";
- 
- 
- 
- container.appendChild(winerDiv);
- container.appendChild(tempDiv);
- container.appendChild(resultDiv);
-
- let playerPoints = parseInt(0);
- let cpuPoints = parseInt(0);
- 
-
-updateScore(0, 'player');
-updateScore(0, 'cpu');
